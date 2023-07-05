@@ -1,0 +1,138 @@
+.product
+  &__list
+    background: var(--grayscale-300, #e9ebee)
+    display: grid
+    grid-template-columns: repeat(4, max-content)
+    height: 100vh
+    justify-content: space-around
+    align-items: center
+
+  &__card
+    max-width: 304px
+    width: 100%
+    display: inline-flex
+    padding: 32px
+    flex-direction: column
+    align-items: flex-start
+    gap: 32px
+    border-radius: 8px
+    background: var(--grayscale-0, #fff)
+    transition: all 200ms ease-in-out
+
+    &:hover
+      box-shadow: 0px 8px 24px 0px rgba(0, 0, 0, 0.08)
+
+    &--image
+      position: relative
+
+  &__wishlist-button
+    position: absolute
+    top: 0
+    right: 0
+    border: 0
+    background: none
+    cursor: pointer
+
+    svg
+      path,circle
+        transition: all 200ms ease-in-out
+
+    &:not([data-active="true"])
+      svg
+        &:hover
+          circle
+            fill: var(--pink-100)
+          path
+            fill: var(--pink-100)
+            stroke: var(--red-500)
+
+    &[data-active="true"]
+      svg
+        circle
+          fill: var(--red-500, #da4b4f)
+          &:hover
+            fill: var(--red-600, #C22539)
+        path
+          fill: var(--grayscale-0, #ffffff)
+          stroke: var(--grayscale-0, #ffffff)
+
+  &__name
+    color: var(--grayscale-900, #1c1c1c)
+    font-size: 14px
+    font-style: normal
+    font-weight: 500
+    line-height: 20px
+
+  &__price
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 4px
+
+    &--listPrice
+      color: var(--grayscale-600, #b5b5b6)
+      font-size: 14px
+      font-style: normal
+      font-weight: 500
+      line-height: 20px
+      letter-spacing: -0.07px
+      text-decoration-line: line-through
+
+    &--sellingPrice
+      color: var(--red-500, #da4b4f)
+      font-size: 20px
+      font-style: normal
+      font-weight: 600
+      line-height: 24px
+      letter-spacing: -0.1px
+
+    &--installments
+      color: #848587
+      font-size: 12px
+      font-style: normal
+      font-weight: 500
+      line-height: 16px
+      letter-spacing: -0.06px
+
+      strong
+        color: var(--grayscale-900, #1c1c1c)
+
+  &__buyButton
+    display: flex
+    padding: 12px 24px
+    border: 0
+    justify-content: center
+    align-items: center
+    gap: 10px
+    align-self: stretch
+    border-radius: 5px
+    background: var(--green-400, #40b25c)
+    cursor: pointer
+
+    color: var(--grayscale-0, #fff)
+    font-size: 16px
+    font-family: "Inter" sans-serif
+    font-style: normal
+    font-weight: 700
+    line-height: 24px
+    letter-spacing: -0.08px
+    text-transform: uppercase
+
+    transition: all 200ms ease-in-out
+
+    &:not(&[data-added="true"])
+      &:hover
+        background: var(--green-600, #1C6C3E)
+
+    &[data-added="true"]
+      background: var(--green-100, #A3F9B9)
+      color: var(--grayscale-900, #1C1C1C)
+
+      &::before
+        content: ""
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none"><g id="check 1"><path id="Vector" d="M20.5 6L9.5 17L4.5 12" stroke="%231C1C1C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>') no-repeat center center
+        width: 24px
+        height: 24px
+
+      &:hover
+        background: var(--green-200, #5AEF80)
